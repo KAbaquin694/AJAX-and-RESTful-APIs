@@ -10,19 +10,6 @@
 "use strict";
 
 // global variables
-<<<<<<< HEAD:02-AJAX/Exercise-LAMP/www/script.js
-let selectedCity = "Tucson, AZ";
-let weatherReport;
-
-let httpRequest = false;
-
-function getRequestObject() {
-   try {
-      httpRequest = new XMLHttpRequest();
-   } catch (requestError) {
-      document.querySelector("p.error").innerHTML = "Forecast not suported by your browser.";
-      document.querySelector("p.error").style.display = "block";
-=======
 var selectedCity = "Tucson, AZ";
 var weatherReport;
 var httpRequest = false;
@@ -33,7 +20,6 @@ function getRequestObject(){
       httpRequest = new XMLHttpRequest();
    } catch (requestError) {
       console.log(`Our error:  ${requestError}`);
->>>>>>> Development:02-AJAX/www/script.js
       return false;
    }
    return httpRequest;
@@ -59,18 +45,11 @@ function getWeather(evt) {
       latitude = 45.5601062;
       longitude = -73.7120832;
    }
-<<<<<<< HEAD:02-AJAX/Exercise-LAMP/www/script.js
-   if(!httpRequest) httpRequest = getRequestObject();
-   httpRequest.abort();
-   httpRequest.open("get", "solar.php?" + "lat=" + latitude + 
-   "&lng=" + longitude, true );
-=======
 
    if(!httpRequest) httpRequest = getRequestObject();
 
    httpRequest.abort();
    httpRequest.open("get", "solar.php?" + "lat=" + latitude + "&lng" + longitude, true);
->>>>>>> Development:02-AJAX/www/script.js
    httpRequest.send(null);
 }
 
