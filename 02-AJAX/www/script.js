@@ -51,7 +51,25 @@ function getWeather(evt) {
    httpRequest.abort();
    httpRequest.open("get", "solar.php?" + "lat=" + latitude + "&lng" + longitude, true);
    httpRequest.send(null);
+   httpRequest.onreadystatechange = fillWeather;
 }
+
+function fillWeather() {
+   if (httpRequest.readyState === 4 &&
+      httpRequest.status === 200) {
+     weatherReport = JSON.parse(httpRequest.responseText);
+     weatherReport = JSON.parse(httpRequest.responseText);
+     var days = ["Sunday","Monday","Tuesday",
+         "Wednesday","Thursday","Friday","Saturday"];
+     var dateValue = new 
+         Date(weatherReport.daily.data[0].time);
+     var dayOfWeek = dateValue.getDay();
+     var rows = document.querySelectorAll
+         ("section.week table tbody tr");
+     document.querySelector("section.week table caption").
+         innerHTML = selectedCity;
+   }
+ }
 
 var locations = document.querySelectorAll("section ul li");
 for (var i = 0; i < locations.length; i++) {
