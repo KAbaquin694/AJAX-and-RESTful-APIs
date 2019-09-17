@@ -10,18 +10,6 @@
 "use strict";
 
 // global variables
-<<<<<<< HEAD
-var selectedCity = "Tucson, AZ";
-var weatherReport;
-var httpRequest = false;
-
-function getRequestObject(){
-   alert('to annoy our users...');
-   try {
-      httpRequest = new XMLHttpRequest();
-   } catch (requestError) {
-      console.log(`Our error:  ${requestError}`);
-=======
 let selectedCity = "Tucson, AZ";
 let weatherReport;
 
@@ -35,7 +23,6 @@ function getRequestObject() {
    } catch (requestError) {
       document.querySelector("p.error").innerHTML = "Forecast not supported by your browser.";
       document.querySelector("p.error").style.display = "block";
->>>>>>> master
       return false;
    }
    return httpRequest;
@@ -61,15 +48,6 @@ function getWeather(evt) {
       latitude = 45.5601062;
       longitude = -73.7120832;
    }
-<<<<<<< HEAD
-
-   if(!httpRequest) httpRequest = getRequestObject();
-
-   httpRequest.abort();
-   httpRequest.open("get", "solar.php?" + "lat=" + latitude + "&lng" + longitude, true);
-   httpRequest.send(null);
-   httpRequest.onreadystatechange = fillWeather;
-=======
    if (!httpRequest) httpRequest = getRequestObject();
    httpRequest.abort();
    httpRequest.open("get", "solar.php?" + "lat=" + latitude + "&lng=" + longitude, true);
@@ -136,7 +114,6 @@ function fillWeather() {
 
    }
    document.querySelector("section.week p.credit").style.display = "block";
->>>>>>> master
 }
 
 function fillWeather() {
